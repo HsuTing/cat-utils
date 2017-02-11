@@ -7,7 +7,7 @@
   },
   "main": "./lib/index.js",
   "name": "cat-utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "utils for cat",
   "author": {
     "name": "hsuting",
