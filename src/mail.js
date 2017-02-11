@@ -14,14 +14,14 @@ const transporter = nodemailer.createTransport({
 });
 
 export default options => {
-  transporter.sendMail({
+  transporter.sendMail(Object.assign({
     from: `<${process.env.MAIL_EMAIL}>`,
     to: options.recipient,
     subject: options.subject,
     html: renderToStaticMarkup(
       options.content
     )
-  }, (error, info) => {
+  }, options), (error, info) => {
     if(error)
       return console.log(error);
 

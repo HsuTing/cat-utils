@@ -12,7 +12,7 @@ const resize = DOM => {
 
 export default DOMs => {
   if(DOMs instanceof Array)
-    DOMs.map(resize);
+    DOMs.forEach(resize);
   else
     resize(DOMs);
 };

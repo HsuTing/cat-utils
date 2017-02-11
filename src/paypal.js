@@ -11,9 +11,4 @@ paypal.configure({
   client_secret: process.env.PAYPAL_CLIENT_SECRET
 });
 
-export const REDIRECT_URLS = {
-  return_url: '',
-  cancel_url: ''
-};
-
 export default paypal;
