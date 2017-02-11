@@ -1,0 +1,13 @@
+{
+  "generator-cat": {
+    "promptValues": {
+      "authorName": "hsuting",
+      "authorEmail": "hsuting0106@gmail.com",
+      "authorUrl": "http://hsuting.com",
+      "type": [
+        "npm"
+      ]
+    },
+    "plugins": []
+  }
+}
