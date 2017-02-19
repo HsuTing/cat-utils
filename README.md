@@ -2,28 +2,28 @@
 Utils for cat.
 
 ## Utils
-You can all detail in [code](./src).
+You can see all detail in [code](./src).
 - allpay
-  - getPaymentInfo: use to get `CheckMacValue`.
   - You need to install `uuid`, `node-fetch` and `moment`.
+  - Use to get `CheckMacValue`.
 - firebaseInit
-  - init of `firebase`.
   - You need to install `firebase`.
+  - init of `firebase`.
 - googleDrive
-  - Use `google drive api`.
   - You need to install `readline` and `google-auth-library`.
+  - Use `google drive api`.
   - You need to add `google_drive_secret.json` in `.ignore`.
 - imgResize
   - Use to resize img to meet size of parentNode.
 - mail
-  - Send email with `smtp` server.
   - You need to install `nodemailer`.
+  - Send email with `smtp` server.
 - paypal
-  - Configure of `paypal`.
   - You need to install `paypal-rest-sdk`.
+  - Configure of `paypal`.
 - sqlite
-  - `Promise` for `sqlite3`.
   - You need to install `sqlite3`.
+  - `Promise` for `sqlite3`.
 
 ## License
 MIT © [hsuting](http://hsuting.com)

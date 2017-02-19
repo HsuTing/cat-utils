@@ -3,6 +3,13 @@
 import process from 'process';
 import paypal from 'paypal-rest-sdk';
 
+import checkEnv from './checkEnv';
+
+checkEnv([
+  'PAYPAL_CLIENT_ID',
+  'PAYPAL_CLIENT_SECRET'
+]);
+
 const ENV = process.env.NODE_ENV === 'production';
 
 paypal.configure({

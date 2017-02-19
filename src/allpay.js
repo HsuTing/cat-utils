@@ -6,6 +6,14 @@ import uuid from 'uuid';
 import fetch from 'node-fetch';
 import moment from 'moment';
 
+import checkEnv from './checkEnv';
+
+checkEnv([
+  'ALLPAY_HASHKEY',
+  'ALLPAY_HASHIV',
+  'ALLPAY_MERCHANTID'
+]);
+
 const ENV = process.env.NODE_ENV === 'production';
 const config = {
   server: ENV ? 'https://payment.allpay.com.tw' : 'https://payment-stage.allpay.com.tw',
@@ -16,7 +24,7 @@ const config = {
   ChoosePayment: 'ALL'
 };
 
-export const getPaymentInfo = (payment, callback) => {
+export default (payment, callback) => {
   const data = {
     MerchantID: config.MerchantID,
     MerchantTradeNo: uuid.v4().replace(/-/g, '').slice(0, 20),
