@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "test": "yarn babel && istanbul cover _mocha -- -R spec test/**/*",
     "lint": "eslint --cache ./src ./bin --ext .js",
     "lint:watch": "esw --cache ./src ./bin --ext .js -w --color",
     "babel": "rm -rf ./lib && babel src --out-dir lib",
@@ -7,7 +8,7 @@
   },
   "main": "./lib/index.js",
   "name": "cat-utils",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "utils for cat",
   "author": {
     "name": "hsuting",
@@ -42,6 +43,9 @@
     "eslint-import-resolver-babel-module": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-watch": "^2.1.14",
-    "pre-commit": "^1.2.2"
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "pre-commit": "^1.2.2",
+    "should": "^11.2.0"
   }
 }
