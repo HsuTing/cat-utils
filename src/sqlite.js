@@ -29,3 +29,20 @@ export const all = query => {
     });
   });
 };
+
+export const create = (name, fields = [], callback = () => {}) => {
+  db.run(`CREATE TABLE ${name} (${
+    fields.map(field => {
+      return `${field.name} ${field.attributes}`;
+    }).join(',')
+  })`, callback);
+};
+
+export const insert = (name, items = {}, callback = () => {}) => {
+  const keys = Object.keys(items);
+  const values = keys.map(key => {
+    return items[key];
+  }).join(',');
+
+  db.run(`INSERT INTO TABLE ${name} (${keys.join(',')}) VALUES (${values})`, callback);
+};
