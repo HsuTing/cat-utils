@@ -24,7 +24,7 @@ You can see all detail in [code](./src).
 - sqlite
   - You need to install `sqlite3`.
   - `Promise` for `sqlite3`.
-  - You can see [here](./test/sqlite)
+  - You can see [here](./test/sqlite.js).
 
 ## License
 MIT © [hsuting](http://hsuting.com)
