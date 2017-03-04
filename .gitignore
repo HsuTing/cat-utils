@@ -7,3 +7,4 @@ coverage
 schema.*
 .ignore
 lib
+*.sqlite3
