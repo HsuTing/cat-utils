@@ -9,6 +9,7 @@ You can see all detail in [code](./src).
 - firebaseInit
   - You need to install `firebase`.
   - init of `firebase`.
+  - auth for `firebase`.
 - googleDrive
   - You need to install `readline` and `google-auth-library`.
   - Use `google drive api`.

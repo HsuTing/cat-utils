@@ -20,6 +20,11 @@ firebase.initializeApp({
 });
 
 export const auth = callback => {
+  checkEnv([
+    'FIREBASE_EMAIL',
+    'FIREBASE_PASSWORD'
+  ]);
+
   if(callback)
     firebase.auth()
       .signInWithEmailAndPassword(process.env.FIREBASE_EMAIL, process.env.FIREBASE_PASSWORD)
