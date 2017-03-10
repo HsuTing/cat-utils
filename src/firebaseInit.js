@@ -19,4 +19,17 @@ firebase.initializeApp({
   storageBucket: process.env.FIREBASE_STORAGEBUCKET
 });
 
+export const auth = callback => {
+  if(callback)
+    firebase.auth()
+      .signInWithEmailAndPassword(process.env.FIREBASE_EMAIL, process.env.FIREBASE_PASSWORD)
+      .catch(callback);
+  else
+    firebase.auth()
+      .signInWithEmailAndPassword(process.env.FIREBASE_EMAIL, process.env.FIREBASE_PASSWORD)
+      .catch(err => {
+        throw new Error(err);
+      });
+};
+
 export default firebase;
