@@ -3,29 +3,34 @@ Utils for cat.
 
 ## Utils
 You can see all detail in [code](./src).
+- checkEnv
+  - Use to check `process.env`.
+  - You can see [here](./test/checkEnv.js).
 - allpay
-  - You need to install `uuid`, `node-fetch` and `moment`.
+  - Install: `uuid`, `node-fetch`, `moment`
   - Use to get `CheckMacValue`.
-- firebaseInit
-  - You need to install `firebase`.
-  - init of `firebase`.
-  - auth for `firebase`.
-- googleDrive
-  - You need to install `readline` and `google-auth-library`.
+- firebase-utils
+  - Install: `firebase`
+  - Init, Auth of `firebase`.
+- google-drive
+  - Install: `readline`, `google-auth-library`
   - Use `google drive api`.
   - You need to add `google_drive_secret.json` in `.ignore`.
 - imgResize
   - Use to resize img to meet size of parentNode.
 - mail
-  - You need to install `nodemailer`.
+  - Install: `nodemailer`
   - Send email with `smtp` server.
 - paypal
-  - You need to install `paypal-rest-sdk`.
+  - Install: `paypal-rest-sdk`
   - Configure of `paypal`.
 - sqlite
-  - You need to install `sqlite3`.
+  - Install: `sqlite3`
   - `Promise` for `sqlite3`.
   - You can see [here](./test/sqlite.js).
+- graphql-utils
+  - Install: `graphql`
+  - Get fields of `GraphQLObjectType`.
 
 ## License
 MIT © [hsuting](http://hsuting.com)
