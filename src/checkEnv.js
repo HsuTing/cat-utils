@@ -6,7 +6,7 @@ export default names => {
   if(names instanceof Array) {
     names.forEach(name => {
       if(!process.env[name])
-        throw new Error(`process.env.${name} is undefined.`);
+        throw new Error(`process.env.${name} is undefined.\n${JSON.stringify(names)}`);
     });
   } else {
     if(!process.env[names])
