@@ -31,6 +31,8 @@ You can see all detail in [code](./src).
 - graphql-utils
   - Install: `graphql`
   - Get fields of `GraphQLObjectType`.
+- event-controller
+  - Control events of window.
 
 ## License
 MIT © [hsuting](http://hsuting.com)
