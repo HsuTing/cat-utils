@@ -38,7 +38,7 @@ class Controller {
     Object.keys(events)
       .forEach(key => {
         window.removeEventListener(key, callback);
-        window.addEventListener(key, (e) => {
+        window.addEventListener(key, e => {
           const event = events[key];
 
           Object.keys(event).forEach(eventKey => {
