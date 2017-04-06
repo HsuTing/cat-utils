@@ -17,7 +17,7 @@ class Controller {
       throw new Error(`"${data.id}" already exists in "${data.name}".`);
   }
 
-  set removeEnvet(data) {
+  set removeEvent(data) {
     if(!this.events[data.name])
       this.events[data.name] = {};
 
