@@ -26,6 +26,6 @@ describe('checkEnv', () => {
 
     (() => {
       checkEnv(['test', 'tttest'])
-    }).should.be.throw('process.env.tttest is undefined.');
+    }).should.be.throw(`process.env.tttest is undefined.\n["test","tttest"]`);
   });
 });
