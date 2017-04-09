@@ -3,9 +3,9 @@
 import process from 'process'
 import * as firebase from 'firebase';
 
-import checkEnv from './checkEnv';
+import check from './check';
 
-checkEnv([
+check.env([
   'FIREBASE_APIKEY',
   'FIREBASE_AUTHDOMAIN',
   'FIREBASE_DATABASEURL',
@@ -20,7 +20,7 @@ firebase.initializeApp({
 });
 
 export const auth = callback => {
-  checkEnv([
+  check.env([
     'FIREBASE_EMAIL',
     'FIREBASE_PASSWORD'
   ]);

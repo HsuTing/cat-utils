@@ -3,9 +3,9 @@ Utils for cat.
 
 ## Utils
 You can see all detail in [code](./src).
-- checkEnv
-  - Use to check `process.env`.
-  - You can see [here](./test/checkEnv.js).
+- check
+  - Use to check some value.
+  - You can see [here](./test/check.js).
 - allpay
   - Install: `uuid`, `node-fetch`, `moment`
   - Use to get `CheckMacValue`.

@@ -3,9 +3,9 @@
 import process from 'process';
 import paypal from 'paypal-rest-sdk';
 
-import checkEnv from './checkEnv';
+import check from './check';
 
-checkEnv([
+check.env([
   'PAYPAL_CLIENT_ID',
   'PAYPAL_CLIENT_SECRET'
 ]);

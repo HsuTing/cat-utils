@@ -3,9 +3,9 @@
 import nodemailer from 'nodemailer';
 import {renderToStaticMarkup} from 'react-dom/server';
 
-import checkEnv from './checkEnv';
+import check from './check';
 
-checkEnv([
+check.env([
   'MAIL_EMAIL',
   'MAIL_PASSWORD'
 ]);

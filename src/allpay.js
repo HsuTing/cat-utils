@@ -6,9 +6,9 @@ import uuid from 'uuid';
 import fetch from 'node-fetch';
 import moment from 'moment';
 
-import checkEnv from './checkEnv';
+import check from './check';
 
-checkEnv([
+check.env([
   'ALLPAY_HASHKEY',
   'ALLPAY_HASHIV',
   'ALLPAY_MERCHANTID'
