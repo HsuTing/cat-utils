@@ -19,7 +19,7 @@ export const getFields = attributes => {
           ),
           resolve: parent => parent[key] || [{}]
         };
-      else if(attributes[key] instanceof String) {
+      else if(typeof attributes[key] === 'string') {
         value = {
           description: attributes[key],
           type: GraphQLString,
