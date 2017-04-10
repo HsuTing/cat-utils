@@ -6,3 +6,4 @@ yarn.lock
 .yo-rc.json
 test
 coverage
+*.sqlite3

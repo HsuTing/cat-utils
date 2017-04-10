@@ -9,11 +9,7 @@ import {
 export const getFields = attributes => {
   Object.keys(attributes)
     .forEach(key => {
-      let value = {
-        description: attributes[key],
-        type: GraphQLString,
-        resolve: parent => parent[key] || ''
-      };
+      let value = attributes[key];
 
       if(attributes[key] instanceof Array)
         value = {
@@ -23,14 +19,13 @@ export const getFields = attributes => {
           ),
           resolve: parent => parent[key] || [{}]
         };
-      else if(attributes[key] instanceof Object)
+      else if(attributes[key] instanceof String) {
         value = {
-          description: attributes[key].description,
-          type: new GraphQLList(
-            new GraphQLObjectType(attributes[key])
-          ),
-          resolve: parent => parent[key] || {}
+          description: attributes[key],
+          type: GraphQLString,
+          resolve: parent => parent[key] || ''
         };
+      }
 
       attributes[key] = value;
     });
