@@ -24,10 +24,15 @@ You can see all detail in [code](./src).
 - paypal
   - Install: `paypal-rest-sdk`
   - Configure of `paypal`.
-- sqlite
-  - Install: `sqlite3`
-  - `Promise` for `sqlite3`.
-  - You can see [here](./test/sqlite.js).
+- db
+  - sqlite3
+    - Install: `sqlite3`
+    - `Promise` for `sqlite3`.
+  - postgresql
+    - Install: `pg`
+    - `Promise` for `postgresql`.
+  - If you need to change database, you just need to import from other module.
+  - You can see [here](./test/db.js).
 - graphql-utils
   - Install: `graphql`
   - Get fields of `GraphQLObjectType`.
