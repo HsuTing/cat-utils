@@ -1,7 +1,6 @@
 'use strict';
 
-import process from 'process';
-import pg from 'pg';
+import {native as pg} from 'pg';
 
 import db from 'utils/db';
 
@@ -9,9 +8,6 @@ export default class database extends db {
   constructor(config) {
     super();
     this.config = Object.assign({
-      user: process.env.PSQL_USER,
-      database: process.env.PSQL_DATABASE,
-      password: process.env.PSQL_PASSWORD,
       host: 'localhost',
       port: 5432,
       max: 10,

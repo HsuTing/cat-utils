@@ -208,10 +208,10 @@ const test_callback = (resolve, reject) => (err, data) => {
     describe('empty data', () => {
       before(() => {
         if(index === 0)
-          db.sqlite.run('DELETE FROM test');
+          return db.sqlite.run('DELETE FROM test');
 
         if(index === 1)
-          db.pool.query('DELETE FROM test');
+          return db.pool.query('DELETE FROM test');
       });
 
       it('get', () => {
