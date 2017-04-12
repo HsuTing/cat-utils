@@ -27,10 +27,8 @@ You can see all detail in [code](./src).
 - db
   - sqlite3
     - Install: `sqlite3`
-    - `Promise` for `sqlite3`.
   - postgresql
-    - Install: `pg`
-    - `Promise` for `postgresql`.
+    - Install: `pg` and `pg-natvie`
   - If you need to change database, you just need to import from other module.
   - You can see [here](./test/db.js).
 - graphql-utils
