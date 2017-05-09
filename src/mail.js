@@ -21,14 +21,15 @@ const transporter = nodemailer.createTransport({
 });
 
 export default options => new Promise((resolve, reject) => {
-  transporter.sendMail(Object.assign({
+  transporter.sendMail({
     from: `<${process.env.MAIL_EMAIL}>`,
     to: options.recipient,
     subject: options.subject,
     html: renderToStaticMarkup(
       options.content
-    )
-  }, options), (error, info) => {
+    ),
+    ...options
+  }, (error, info) => {
     if(error)
       return reject(error);
 

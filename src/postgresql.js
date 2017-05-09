@@ -7,12 +7,13 @@ import db from 'utils/db';
 export default class database extends db {
   constructor(config) {
     super();
-    this.config = Object.assign({
+    this.config = {
       host: 'localhost',
       port: 5432,
       max: 10,
-      idleTimeoutMillis: 30000
-    }, config);
+      idleTimeoutMillis: 30000,
+      ...config
+    };
     this.db = new pg.Pool(this.config);
     this.funcName = 'query';
   }

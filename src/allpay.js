@@ -36,15 +36,19 @@ export default (payment, callback) => {
 
   fetch(url.resolve(config.server, '/AioHelper/GenCheckMacValue/'), {
     method: 'POST',
-    body: JSON.stringify(Object.assign({}, data, payment)),
+    body: JSON.stringify({
+      ...data,
+      ...payment
+    }),
     headers: {'Content-Type': 'application/json'},
   }).then(res => res.text())
     .then(text => {
-      callback(Object.assign({
+      callback({
         MerchantTradeNo: data.MerchantTradeNo,
         MerchantTradeDate: data.MerchantTradeDate,
-        CheckMacValue: text
-      }, payment))
+        CheckMacValue: text,
+        ...payment
+      })
     })
     .catch(e => callback(null, e));
 };
