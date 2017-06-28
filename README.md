@@ -1,4 +1,4 @@
-# Cat-utils [![NPM version][npm-image]][npm-url]
+# Cat-utils [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 Utils for cat.
 
 ## Utils
@@ -42,3 +42,5 @@ MIT © [hsuting](http://hsuting.com)
 
 [npm-image]: https://badge.fury.io/js/cat-utils.svg
 [npm-url]: https://npmjs.org/package/cat-utils
+[travis-image]: https://travis-ci.org/HsuTing/cat-components.svg?branch=master
+[travis-url]: https://travis-ci.org/HsuTing/cat-components

@@ -1,0 +1,11 @@
+anguage: node_js
+node_js:
+  - "node"
+script:
+  - yarn run lint
+  - yarn run test
+branches:
+only:
+  - master
+cache:
+yarn: true
