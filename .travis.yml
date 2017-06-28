@@ -10,5 +10,4 @@ only:
 cache:
 yarn: true
 services:
-  - sqlite3
   - postgresql

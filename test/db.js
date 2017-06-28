@@ -12,10 +12,11 @@ const test_callback = (resolve, reject) => (err, data) => {
   resolve(true);
 };
 
-[
-  new sqlite(),
+(
+  process.env.local ? [new sqlite()] : []
+).concat([
   new postgresql(),
-].forEach((db, index) => {
+]).forEach((db, index) => {
   describe('sqlite', () => {
     if(index === 0)
       it('get sqlite', () => {
