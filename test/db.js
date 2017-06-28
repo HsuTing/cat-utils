@@ -3,54 +3,64 @@
 const should = require('should');
 const process = require('process');
 
-const sqlite = require('./../lib/sqlite').default;
 const postgresql = require('./../lib/postgresql').default;
-const db = new sqlite();
 
 const test_callback = (resolve, reject) => (err, data) => {
   reject(true);
   resolve(true);
 };
 
-(
-  process.env.local ? [new sqlite()] : []
-).concat([
-  new postgresql(),
-]).forEach((db, index) => {
-  describe('sqlite', () => {
-    if(index === 0)
+const dbs = [{
+  name: 'postgresql',
+  db: new postgresql()
+}];
+
+if(process.env.LOCAL) {
+  const sqlite = require('./../lib/sqlite').default;
+  dbs.push({
+    name: 'sqlite',
+    db: new sqlite()
+  });
+}
+
+dbs.forEach(({name, db}, index) => {
+  describe(name, () => {
+    if(name === 'sqlite')
       it('get sqlite', () => {
         should.exist(db.sqlite);
       });
-    if(index === 1)
+    if(name === 'postgresql')
       it('get pool', () => {
         should.exist(db.pool);
       });
 
     it('can not call as function', () => {
-      if(index === 0)
+      if(name === 'sqlite')
         (() => {
+          const sqlite = require('./../lib/sqlite').default;
           sqlite();
         }).should.be.throw('Cannot call a class as a function');
 
-      if(index === 1)
+      if(name === 'postgresql')
         (() => {
           postgresql();
         }).should.be.throw('Cannot call a class as a function');
     });
 
     describe('build datebase', () => {
-      if(index === 0) {
+      if(name === 'sqlite') {
         it('default path', () => {
+          const sqlite = require('./../lib/sqlite').default;
           new sqlite();
         });
 
         it('custom path', () => {
+          const sqlite = require('./../lib/sqlite').default;
           new sqlite('./test/db.sqlite3');
         });
       }
 
-      if(index === 1) {
+      if(name === 'postgresql') {
         it('default config', () => {
           new postgresql();
         });
@@ -68,17 +78,17 @@ const test_callback = (resolve, reject) => (err, data) => {
         col: 'TEXT'
       };
 
-      if(index === 1)
+      if(name === 'postgresql')
         query = {
           col: 'varchar(40)'
         }
 
       it('success', () => {
-        if(index === 0)
+        if(name === 'sqlite')
           return db.create('test', query)
             .should.be.finally.true();
 
-        if(index === 1)
+        if(name === 'postgresql')
           return db.create('test', query)
             .should.be.finally.Object();
       });
@@ -96,12 +106,12 @@ const test_callback = (resolve, reject) => (err, data) => {
 
     describe('insert data', () => {
       it('success', () => {
-        if(index === 0)
+        if(name === 'sqlite')
           return db.insert('test', {
             col: '\'test\''
           }).should.be.finally.true();
 
-        if(index === 1)
+        if(name === 'postgresql')
           return db.insert('test', {
             col: '\'test\''
           }).should.be.finally.Object();
@@ -169,11 +179,11 @@ const test_callback = (resolve, reject) => (err, data) => {
         });
 
         it('success', () => {
-          if(index === 0)
+          if(name === 'sqlite')
             return db.all('SELECT * FROM test')
               .should.be.finally.eql([{col: 'try'}, {col: 'testt'}]);
 
-          if(index === 1)
+          if(name === 'postgresql')
             return db.all('SELECT * FROM test')
               .should.be.finally.eql([{col: 'testt'}, {col: 'try'}]);
         });
@@ -208,10 +218,10 @@ const test_callback = (resolve, reject) => (err, data) => {
 
     describe('empty data', () => {
       before(() => {
-        if(index === 0)
+        if(name === 'sqlite')
           return db.sqlite.run('DELETE FROM test');
 
-        if(index === 1)
+        if(name === 'postgresql')
           return db.pool.query('DELETE FROM test');
       });
 
@@ -223,10 +233,10 @@ const test_callback = (resolve, reject) => (err, data) => {
 
     describe('drop table', () => {
       it('success', () => {
-        if(index === 0)
+        if(name === 'sqlite')
           return db.drop('test').should.be.finally.true();
 
-        if(index === 1)
+        if(name === 'postgresql')
           return db.drop('test').should.be.finally.Object();
       });
 
