@@ -9,3 +9,6 @@ only:
   - master
 cache:
 yarn: true
+services:
+  - sqlite3
+  - postgresql
