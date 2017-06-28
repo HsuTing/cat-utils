@@ -37,7 +37,7 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
 - You can see [here](./test/db.js) to learn how to use.
 - List
   - Import module like `import [db name] from 'cat-utils/lib/[db name]'`.
-  - sqlite3
+  - sqlite
     - Install: `sqlite3`
   - postgresql
     - You can see `pg` to now how to set config.
