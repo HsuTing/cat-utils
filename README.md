@@ -49,15 +49,21 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
   - Install: `babel-polyfill`
   - Example
 
-  ```js
-  db-shell [db name] [config]
-  ```
+    ```js
+    db-shell [db name] [config]
+    ```
 
   - `config`: Use it when you need. If you need to use object like `postgresql`, you can use like `'{"port": 8000}'`.
   - You can input `\q` and `.exit` to quit `db-shell`.
 
 - `postgresql-copy`
   - Install: `babel-polyfill`
+  - Example
+
+    ```js
+    postgresql-copy
+    ```
+
   - Copy the postgresql server to the new postgresql server.
   - Set postgresql server with `process.env`.
     - PGUSER
