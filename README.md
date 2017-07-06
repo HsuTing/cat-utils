@@ -44,6 +44,7 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
     - Install: `pg` and `pg-natvie`
 ###### bin
 - `db-shell`
+
   Use to modify database in command line.
 
   - Install: `babel-polyfill`
@@ -57,6 +58,9 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
   - You can input `\q` and `.exit` to quit `db-shell`.
 
 - `postgresql-copy`
+
+  Copy the postgresql server to the new postgresql server.
+
   - Install: `babel-polyfill`
   - Example
 
@@ -64,7 +68,6 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
     postgresql-copy
     ```
 
-  - Copy the postgresql server to the new postgresql server.
   - Set postgresql server with `process.env`.
     - PGUSER
     - PGDATABASE
