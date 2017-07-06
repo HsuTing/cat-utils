@@ -42,42 +42,41 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
   - postgresql
     - You can see `pg` to now how to set config.
     - Install: `pg` and `pg-natvie`
-###### bin
-- `db-shell`
-
-  Use to modify database in command line.
-
-  - Install: `babel-polyfill`
-  - Example
-
-    ```js
-    db-shell [db name] [config]
-    ```
-
-  - `config`: Use it when you need. If you need to use object like `postgresql`, you can use like `'{"port": 8000}'`.
-  - You can input `\q` and `.exit` to quit `db-shell`.
-
-- `postgresql-copy`
-
-  Copy the postgresql server to the new postgresql server.
-
-  - Install: `babel-polyfill`
-  - Example
-
-    ```js
-    postgresql-copy
-    ```
-
-  - Set postgresql server with `process.env`.
-    - PGUSER
-    - PGDATABASE
-    - PGPASSWORD
-    - PGHOST
-    - PGPORT
-    - NEWPGHOST
 
 #### event-controller
 - Control events of window.
+
+## bin
+#### `db-shell`
+Use to modify database in command line.
+
+- Install: `babel-polyfill` and the other database you use.
+- Example
+
+  ```js
+  db-shell [db name] [config]
+  ```
+
+- `config`: Use it when you need. If you need to use object like `postgresql`, you can use like `'{"port": 8000}'`.
+- You can input `\q` and `.exit` to quit `db-shell`.
+
+#### `postgresql-copy`
+Copy the postgresql server to the new postgresql server.
+
+- Install: `babel-polyfill`, `pg` and `pg-natvie`
+- Example
+
+  ```js
+  postgresql-copy
+  ```
+
+- Set postgresql server with `process.env`.
+  - PGUSER
+  - PGDATABASE
+  - PGPASSWORD
+  - PGHOST
+  - PGPORT
+  - NEWPGHOST
 
 ## License
 MIT © [hsuting](http://hsuting.com)
