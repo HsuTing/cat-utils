@@ -4,6 +4,9 @@ Utils for cat.
 ## Utils
 You can see all detail in [code](./src). Use most of them like `import [util name] from 'cat-utils/lib/[util name]'`.
 
+#### console
+- Not show message when `process.env.NODE_ENV === 'production'`.
+
 #### check
 - Use to check some value.
 - You can see [here](./test/check.js) to learn how to use.
