@@ -24,9 +24,6 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
 - Use `google drive api`.
 - You need to add `google_drive_secret.json` in `.ignore`.
 
-#### imgResize
-- Use to resize img to meet size of parentNode.
-
 #### mail
 - Install: `nodemailer`
 - Send email with `smtp` server.
@@ -45,9 +42,6 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
   - postgresql
     - You can see `pg` to now how to set config.
     - Install: `pg` and `pg-natvie`
-
-#### event-controller
-- Control events of window.
 
 ## bin
 #### db-shell
