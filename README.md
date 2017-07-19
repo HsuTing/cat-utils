@@ -77,6 +77,6 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
 MIT © [hsuting](http://hsuting.com)
 
 [npm-image]: https://badge.fury.io/js/cat-utils.svg
-[npm-url]: https://npmjs.org/package/cat-utils
+[npm-url]: https://www.npmjs.com/package/cat-utils
 [travis-image]: https://travis-ci.org/HsuTing/cat-utils.svg?branch=master
 [travis-url]: https://travis-ci.org/HsuTing/cat-utils
