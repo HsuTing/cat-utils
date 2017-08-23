@@ -1,9 +1,11 @@
 language: node_js
 node_js:
   - "node"
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install sqlite3 libsqlite3-dev build-essential python
+addons:
+  apt:
+    sources:
+    - sqlite3
+    - sourceline: 'ppa:travis-ci/sqlite3'
 script:
   - yarn run lint
   - yarn run test
