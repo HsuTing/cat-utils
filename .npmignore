@@ -7,4 +7,5 @@ yarn.lock
 .travis.yml
 test
 coverage
+.nyc_output
 *.sqlite3
