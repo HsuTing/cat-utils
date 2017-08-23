@@ -2,11 +2,10 @@
 Utils for cat.
 
 ## Utils
-You can see all detail in [code](./src). Use most of them like `import [util name] from 'cat-utils/lib/[util name]'`.
+You can see all detail in [code](./src) or [here](./src/test). Use most of them like `import [util name] from 'cat-utils/lib/[util name]'`.
 
 #### check
 - Use to check some value.
-- You can see [here](./test/check.js) to learn how to use.
 
 #### allpay
 - Install: `uuid`, `node-fetch`, `moment`
@@ -31,7 +30,6 @@ You can see all detail in [code](./src). Use most of them like `import [util nam
 
 #### db
 - If you need to change database, you just need to import from other `db name`.
-- You can see [here](./test/db.js) to learn how to use.
 - List
   - Import module like `import [db name] from 'cat-utils/lib/[db name]'`.
   - sqlite
