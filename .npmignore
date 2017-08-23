@@ -6,6 +6,7 @@ yarn.lock
 .yo-rc.json
 .travis.yml
 test
+.nycrc
 coverage
 .nyc_output
 *.sqlite3
