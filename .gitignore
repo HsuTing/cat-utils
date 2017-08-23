@@ -8,3 +8,4 @@ schema.*
 .ignore
 lib
 *.sqlite3
+.nyc_output

@@ -1,9 +1,9 @@
 'use strict';
 
-const should = require('should');
-const process = require('process');
+import process from 'process';
+import should from 'should'; // eslint-disable-line no-unused-vars
 
-const check = require('./../lib/check');
+import * as check from './../check';
 
 process.env.test = true;
 process.env.ttest = true;

@@ -63,7 +63,7 @@ export default class db {
     return new Promise((resolve, reject) => {
       this.db[this.funcName](
         query,
-        callback ? callback(resolve, reject) : defualt_callback(resolve, reject)
+        callback(resolve, reject)
       );
     });
   }
@@ -72,7 +72,7 @@ export default class db {
     return new Promise((resolve, reject) => {
       this.db[this.funcName](
         query,
-        callback ? callback(resolve, reject) : defualt_callback(resolve, reject)
+        callback(resolve, reject)
       );
     });
   }

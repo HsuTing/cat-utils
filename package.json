@@ -1,11 +1,11 @@
 {
   "scripts": {
-    "test": "yarn babel && istanbul cover _mocha -- -R spec test/**/*",
+    "test": "nyc mocha ./src/test/*.js --recursive --reporter spec",
     "lint": "eslint --cache ./src ./bin --ext .js",
     "lint:watch": "esw --cache ./src ./bin --ext .js -w --color",
     "babel": "rm -rf ./lib && babel src --out-dir lib",
     "babel:watch": "rm -rf ./lib && babel -w src --out-dir lib",
-    "watch": "export BABEL_ENV=relay && concurrently -c green \"yarn lint:watch\" \"yarn babel:watch\"",
+    "watch": "concurrently -c green \"yarn lint:watch\" \"yarn babel:watch\"",
     "prepublish": "yarn babel"
   },
   "bin": {
@@ -51,8 +51,8 @@
     "eslint-import-resolver-babel-module": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-watch": "^2.1.14",
-    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
+    "nyc": "^11.1.0",
     "pg": "^6.1.5",
     "pg-native": "^1.10.1",
     "pre-commit": "^1.2.2",
