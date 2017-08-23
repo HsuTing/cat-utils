@@ -1,6 +1,9 @@
 language: node_js
 node_js:
   - "node"
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install sqlite3 libsqlite3-dev
 script:
   - yarn run lint
   - yarn run test
