@@ -8,6 +8,8 @@ addons:
     sources:
     - sqlite3
     - sourceline: 'ppa:travis-ci/sqlite3'
+before_script:
+  - psql -c 'create database cat_utils;' -U postgres
 script:
   - yarn run lint
   - yarn run test
