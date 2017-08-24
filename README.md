@@ -51,23 +51,6 @@ You can see all detail in [code](./src) or [here](./src/test). Use most of them 
 - `config`: Use it when you need. If you need to use object like `postgresql`, you can use like `'{"port": 8000}'`.
 - You can input `\q` and `.exit` to quit `db-shell`.
 
-#### postgresql-copy
-- Install: `babel-polyfill`, `pg` and `pg-natvie`
-- Copy the postgresql server to the new postgresql server.
-- Example
-
-  ```js
-  postgresql-copy
-  ```
-
-- Set postgresql server with `process.env`.
-  - PGUSER
-  - PGDATABASE
-  - PGPASSWORD
-  - PGHOST
-  - PGPORT
-  - NEWPGHOST
-
 ## License
 MIT © [hsuting](http://hsuting.com)
 
