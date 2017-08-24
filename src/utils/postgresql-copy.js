@@ -1,31 +1,22 @@
-#!/usr/bin/env node
 'use strict';
 
-require('babel-polyfill');
-import process from 'process';
+import 'babel-polyfill';
 
 import postgresql from './../postgresql';
 
-const config = {
-  user: process.env.PGUSER,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  host: process.env.PGHOST,
-  port: process.env.PGPORT
-};
+export default async (
+  db_config,
+  new_db_config
+) => {
+  const db = new postgresql(db_config);
+  const new_db = new postgresql(new_db_config);
 
-const db = new postgresql(config);
-const new_db = new postgresql(Object.assign({}, config, {
-  host: process.env.NEWPGHOST
-}));
-
-[db, new_db].forEach(database => {
-  database.pool.on('error', (err, client) => {
-    console.error('idle client error', err.message, err.stack)
+  [db, new_db].forEach(database => {
+    database.pool.on('error', (err, client) => {
+      console.error('idle client error', err.message, err.stack)
+    });
   });
-});
 
-(async () => {
   try {
     const tables = (
       await db.all('select table_name from information_schema.tables WHERE table_schema=\'public\'')
@@ -52,8 +43,10 @@ const new_db = new postgresql(Object.assign({}, config, {
     );
 
     console.log('done');
-    process.exit();
   } catch(e) {
     console.log(e);
+    return false;
   }
-})();
+
+  return true;
+};

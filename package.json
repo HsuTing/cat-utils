@@ -5,13 +5,17 @@
     "npm": "5.3.0"
   },
   "scripts": {
-    "test": "nyc mocha ./src/test/*.js --recursive --reporter spec",
+    "test": "nyc mocha ./src/test/*.js --recursive --reporter spec && rm db.sqlite3",
     "lint": "eslint --cache ./src ./bin --ext .js",
     "lint:watch": "esw --cache ./src ./bin --ext .js -w --color",
     "babel": "rm -rf ./lib && babel src --out-dir lib",
     "babel:watch": "rm -rf ./lib && babel -w src --out-dir lib",
     "watch": "concurrently -c green \"yarn lint:watch\" \"yarn babel:watch\"",
-    "prepublish": "yarn babel"
+    "prepublish": "yarn babel",
+    "docker-test:db": "docker run --rm --name db -e POSTGRES_USER=test -e POSTGRES_PASSWORD=test -e POSTGRES_DB=test -d postgres",
+    "docker-test:install": "yarn docker-test:db && docker build -t=\"cat-utils\" . && yarn docker-test:container -- /bin/sh -c \"'yarn install'\"",
+    "docker-test:container": "docker run -it --rm --name cat-utils --link=db:db -v $(pwd):/cat-utils cat-utils",
+    "docker-test": "yarn docker-test:container -- /bin/sh -c \"'yarn test'\""
   },
   "bin": {
     "db-shell": "./lib/bin/db-shell.js",

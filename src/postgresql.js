@@ -5,13 +5,10 @@ import {native as pg} from 'pg';
 import db from 'utils/db';
 
 export default class database extends db {
+  /* istanbul ignore next */
   constructor(config) {
     super();
     this.config = {
-      host: 'localhost',
-      port: 5432,
-      max: 10,
-      idleTimeoutMillis: 30000,
       ...config
     };
     this.db = new pg.Pool(this.config);

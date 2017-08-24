@@ -1,4 +1,4 @@
-sudo: false 
+sudo: false
 dist: trusty
 language: node_js
 node_js:
@@ -10,6 +10,8 @@ addons:
     - sourceline: 'ppa:travis-ci/sqlite3'
 before_script:
   - psql -c 'create database travis;' -U postgres
+  - psql -c 'create database test-2;' -U postgres
+  - psql -c 'create database test-3;' -U postgres
 script:
   - yarn run lint
   - yarn run test

@@ -2,13 +2,14 @@
   "exclude": [
     "coverage/**/*.js",
     "lib/**/*.js",
-    "src/bin/**/*.js"
+    "src/bin/*.js"
   ],
   "extension": [
     ".js"
   ],
   "require": [
-    "babel-core/register"
+    "babel-core/register",
+    "babel-polyfill"
   ],
   "cache": true,
   "all": true,

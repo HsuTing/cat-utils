@@ -9,6 +9,7 @@ import db from 'utils/db';
 const root = process.cwd();
 
 export default class database extends db {
+  /* istanbul ignore next */
   constructor(db_path) {
     super();
     this.db = new sqlite3.Database(
