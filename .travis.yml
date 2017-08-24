@@ -10,8 +10,6 @@ addons:
     - sourceline: 'ppa:travis-ci/sqlite3'
 before_script:
   - psql -c 'create database travis;' -U postgres
-  - psql -c 'create database test_2;' -U postgres
-  - psql -c 'create database test_3;' -U postgres
 script:
   - yarn run lint
   - yarn run test

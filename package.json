@@ -5,7 +5,7 @@
     "npm": "5.3.0"
   },
   "scripts": {
-    "test": "nyc mocha ./src/test/*.js --recursive --reporter spec && rm db.sqlite3",
+    "test": "nyc mocha ./src/test/*.js --recursive --reporter spec && rm -rf ./db.sqlite3",
     "lint": "eslint --cache ./src ./bin --ext .js",
     "lint:watch": "esw --cache ./src ./bin --ext .js -w --color",
     "babel": "rm -rf ./lib && babel src --out-dir lib",

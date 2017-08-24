@@ -10,3 +10,4 @@ test
 coverage
 .nyc_output
 *.sqlite3
+Dockerfile
