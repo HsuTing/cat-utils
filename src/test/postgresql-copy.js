@@ -6,7 +6,10 @@ import postgresql from './../postgresql';
 import postgresqlCopy from './../utils/postgresql-copy';
 import config from './docker-config';
 
-const db = new postgresql(config);
+const db = new postgresql({
+  ...config,
+  database: 'test_2'
+});
 
 describe('postgresql copy', () => {
   before(() => db.insert('test_2', {
