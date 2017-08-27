@@ -18,8 +18,7 @@
     "docker-test": "yarn docker-test:container -- /bin/sh -c \"'yarn test'\""
   },
   "bin": {
-    "db-shell": "./lib/bin/db-shell.js",
-    "postgresql-copy": "./lib/bin/postgresql-copy.js"
+    "db-shell": "./lib/bin/db-shell.js"
   },
   "main": "./lib/index.js",
   "name": "cat-utils",
