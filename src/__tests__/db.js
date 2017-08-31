@@ -13,10 +13,10 @@ const test_callback = (resolve, reject) => (err, data) => {
   resolve(true);
 };
 
-const successFunc = (name, func, obj) => (
+const successFunc = (name, func) => (
   name === 'sqlite' ?
     expect(func).resolves.toBe(true) :
-    expect(func).resolves.toMatchObject(obj)
+    expect(func).resolves.toBeDefined()
 );
 
 const failObj = name => (
@@ -43,15 +43,7 @@ const failObj = name => (
         col: name === 'sqlite' ? 'TEXT' : 'varchar(40)'
       };
 
-      it('## success', () => successFunc(
-        name,
-        db.create('test', query), {
-          command: 'CREATE',
-          fields: null,
-          rowCount: NaN,
-          rows: []
-        })
-      );
+      it('## success', () => successFunc(name, db.create('test', query)));
 
       it('## fail', () => expect(db.create('test', query))
         .rejects.toMatchObject(failObj(name)));
@@ -61,15 +53,7 @@ const failObj = name => (
     });
 
     describe('# insert data', () => {
-      it('## success', () => successFunc(
-        name,
-        db.insert('test', {col: '\'test\''}), {
-          command: 'INSERT',
-          fields: null,
-          rowCount: 1,
-          rows: []
-        })
-      );
+      it('## success', () => successFunc(name, db.insert('test', {col: '\'test\''})));
 
       it('## fail', () => expect(db.insert('test', {test: '\'test\''}))
         .rejects.toMatchObject(failObj(name)));
@@ -142,15 +126,7 @@ const failObj = name => (
     });
 
     describe('# drop table', () => {
-      it('## success', () => successFunc(
-        name,
-        db.drop('test'), {
-          command: 'DROP',
-          fields: null,
-          rowCount: NaN,
-          rows: []
-        })
-      );
+      it('## success', () => successFunc(name, db.drop('test')));
 
       it('## fail', () => expect(db.drop('test'))
         .rejects.toMatchObject(failObj(name)));
