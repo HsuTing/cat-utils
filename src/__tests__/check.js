@@ -1,7 +1,6 @@
 'use strict';
 
 import process from 'process';
-import should from 'should'; // eslint-disable-line no-unused-vars
 
 import * as check from './../check';
 
@@ -12,41 +11,41 @@ describe('check', () => {
   describe('# env', () => {
     describe('## type of argument', () => {
       it('### string', () => {
-        check.env('test').should.be.true();
+        expect(check.env('test')).toBe(true);
       });
 
       it('### array', () => {
-        check.env(['test', 'ttest']).should.be.true();
+        expect(check.env(['test', 'ttest'])).toBe(true);
       });
     });
 
-    it('## should throw error when env does not exist', () => {
-      (() => {
+    it('## throw error when env does not exist', () => {
+      expect(() => {
         check.env('tttest')
-      }).should.be.throw('process.env.tttest is undefined.');
+      }).toThrowError('process.env.tttest is undefined.');
 
-      (() => {
+      expect(() => {
         check.env(['test', 'tttest'])
-      }).should.be.throw(`process.env.tttest is undefined.\n["test","tttest"]`);
+      }).toThrowError(`process.env.tttest is undefined.\n["test","tttest"]`);
     });
   });
 
   describe('# password', () => {
     it('## no value', () => {
-      check.password().should.be.eql(0);
+      expect(check.password()).toBe(0);
     });
 
     describe('## test password', () => {
       it('### strong', () => {
-        check.password('aA1bB2cC3dD4eE5').should.be.eql('strong');
+        expect(check.password('aA1bB2cC3dD4eE5')).toBe('strong');
       });
 
       it('### normal', () => {
-        check.password('aA1bB2cC3').should.be.eql('normal');
+        expect(check.password('aA1bB2cC3')).toBe('normal');
       });
 
       it('### weak', () => {
-        check.password('a').should.be.eql('weak');
+        expect(check.password('a')).toBe('weak');
       });
     });
   });

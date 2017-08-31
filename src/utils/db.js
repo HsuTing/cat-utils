@@ -2,7 +2,7 @@
 
 const defualt_callback = (resolve, reject) => (err, data) => {
   if(err)
-    reject(err);
+    reject(JSON.parse(JSON.stringify(err)));
   else
     resolve(data || true);
 };

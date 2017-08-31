@@ -5,9 +5,8 @@ yarn.lock
 .eslint*
 .yo-rc.json
 .travis.yml
-test
-.nycrc
+jest.config.js
+lib/__tests__
 coverage
-.nyc_output
 *.sqlite3
 Dockerfile

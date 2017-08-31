@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "nyc mocha ./src/test/*.js --recursive --reporter spec && rm -rf ./db.sqlite3",
+    "test": "jest",
+    "test:watch": "yarn test -- --watchAll",
     "lint": "eslint --cache ./src --ext .js",
     "lint:watch": "esw --cache ./src --ext .js -w --color",
     "babel": "rm -rf ./lib && babel src --out-dir lib",
@@ -10,7 +11,8 @@
     "docker-test:db": "docker run --rm --name db -e POSTGRES_USER=test -e POSTGRES_PASSWORD=test -e POSTGRES_DB=test -d postgres",
     "docker-test:install": "yarn docker-test:db && docker build -t=\"cat-utils\" . && yarn docker-test:container -- /bin/sh -c \"'yarn install'\"",
     "docker-test:container": "docker run -it --rm --name cat-utils --link=db:db -v $(pwd):/cat-utils cat-utils",
-    "docker-test": "yarn docker-test:container -- /bin/sh -c \"'yarn test'\""
+    "docker-test": "yarn docker-test:container -- /bin/sh -c \"'yarn test'\"",
+    "docker-test:watch": "yarn docker-test:container -- /bin/sh -c \"'yarn test:watch'\""
   },
   "bin": {
     "db-shell": "./lib/bin/db-shell.js"
@@ -54,12 +56,10 @@
     "eslint-import-resolver-babel-module": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-watch": "^2.1.14",
-    "mocha": "^3.2.0",
-    "nyc": "^11.1.0",
+    "jest": "^20.0.4",
     "pg": "^6.1.5",
     "pg-native": "^1.10.1",
     "pre-commit": "^1.2.2",
-    "should": "^11.2.0",
     "sqlite3": "^3.1.8"
   }
 }
