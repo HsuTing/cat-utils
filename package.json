@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest",
+    "test": "jest --silent",
     "test:watch": "yarn test -- --watchAll",
     "lint": "eslint --cache ./src --ext .js",
     "lint:watch": "esw --cache ./src --ext .js -w --color",
