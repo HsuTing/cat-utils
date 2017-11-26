@@ -1,65 +1,57 @@
 {
   "scripts": {
     "test": "jest --silent",
-    "test:watch": "yarn test -- --watchAll",
+    "test:watch": "yarn test --watchAll",
     "lint": "eslint --cache ./src --ext .js",
     "lint:watch": "esw --cache ./src --ext .js -w --color",
     "babel": "rm -rf ./lib && babel src --out-dir lib --ignore __tests__",
     "babel:watch": "rm -rf ./lib && babel -w src --out-dir lib --ignore __tests__",
-    "watch": "concurrently -c green \"yarn lint:watch\" \"yarn babel:watch\"",
     "prepublish": "yarn babel",
-    "docker-test:db": "docker run --rm --name db -e POSTGRES_USER=test -e POSTGRES_PASSWORD=test -e POSTGRES_DB=test -d postgres",
-    "docker-test:install": "yarn docker-test:db && docker build -t=\"cat-utils\" . && yarn docker-test:container -- /bin/sh -c \"'yarn install'\"",
-    "docker-test:container": "docker run -it --rm --name cat-utils --link=db:db -v $(pwd):/cat-utils cat-utils",
-    "docker-test": "yarn docker-test:container -- /bin/sh -c \"'yarn test'\"",
-    "docker-test:watch": "yarn docker-test:container -- /bin/sh -c \"'yarn test:watch'\""
+    "build": "yarn babel",
+    "prod": "yarn babel",
+    "watch": "concurrently -c green \"yarn lint:watch\" \"yarn babel:watch\""
   },
-  "bin": {
-    "db-shell": "./lib/bin/db-shell.js"
-  },
-  "main": "./lib/index.js",
   "name": "cat-utils",
-  "version": "0.6.1",
-  "description": "utils for cat",
+  "version": "0.7.0",
+  "description": "Some tools for building the project.",
   "author": {
-    "name": "hsuting",
+    "name": "HsuTing",
     "email": "hsuting0106@gmail.com",
     "url": "http://hsuting.com"
   },
+  "main": "./lib/index.js",
   "keywords": [
     "utils"
   ],
   "pre-commit": [
     "lint"
   ],
-  "homepage": "https://github.com/HsuTing/cat-utils",
+  "homepage": "https://github.com/HsuTing/cat-utils/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HsuTing/cat-utils.git"
+    "url": "get+https://github.com/HsuTing/cat-utils.git"
   },
   "bugs": {
-    "url": "https://github.com/HsuTing/cat-utils/issues"
+    "url": "https://github.com/HsuTing/cat-utils/issues/"
   },
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-eslint": "^8.0.2",
+    "babel-plugin-module-resolver": "^3.0.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
-    "concurrently": "^3.5.0",
-    "eslint": "^4.5.0",
+    "concurrently": "^3.5.1",
+    "eslint": "^4.12.0",
+    "eslint-config-cat": "https://github.com/HsuTing/eslint-config-cat.git",
     "eslint-config-google": "^0.9.1",
-    "eslint-import-resolver-babel-module": "^3.0.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-watch": "^3.1.2",
-    "jest": "^20.0.4",
-    "pg": "^7.2.0",
-    "pg-native": "^2.2.0",
-    "pre-commit": "^1.2.2",
-    "sqlite3": "^3.1.9"
+    "eslint-import-resolver-babel-module": "^4.0.0-beta.3",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-watch": "^3.1.3",
+    "jest": "^21.2.1",
+    "pre-commit": "^1.2.2"
   }
 }

@@ -1,21 +1,9 @@
-sudo: false
-dist: trusty
 language: node_js
 node_js:
   - "node"
-addons:
-  apt:
-    sources:
-    - sqlite3
-    - sourceline: 'ppa:travis-ci/sqlite3'
-before_script:
-  - psql -c 'create database travis;' -U postgres
 script:
-  - yarn run lint
-  - yarn run test
-branches:
-only:
-  - master
+  - yarn lint
+  - yarn build
+  - yarn prod
+  - yarn test
 yarn: true
-services:
-  - postgresql

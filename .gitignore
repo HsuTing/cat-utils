@@ -2,8 +2,5 @@ node_modules
 .DS_Store
 *.swp
 .eslintcache
-*.log
 coverage
-schema.*
 lib
-*.sqlite3

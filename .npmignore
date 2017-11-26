@@ -5,8 +5,6 @@ yarn.lock
 .eslint*
 .yo-rc.json
 .travis.yml
+__tests__
 jest.config.js
-lib/__tests__
 coverage
-*.sqlite3
-Dockerfile

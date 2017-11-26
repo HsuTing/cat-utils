@@ -1,60 +1,25 @@
-# Cat-utils [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
-Utils for cat.
+# Cat-utils [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] 
+Some tools for building the project.
+You can see [here](./src/__tests__) to learn how to use `cat-utils`.
 
-## Utils
-You can see all detail in [code](./src) or [here](./src/test). Use most of them like `import [util name] from 'cat-utils/lib/[util name]'`.
+## Getting Started
+Install packages using [yarn](https://yarnpkg.com/) (we assume you have pre-installed [npm](https://www.npmjs.com/) and [node.js](https://nodejs.org/)).
 
-#### check
-- Use to check some value.
+```sh
+yarn install && yarn build
+```
 
-#### allpay
-- Install: `uuid`, `node-fetch`, `moment`
-- Use to get `CheckMacValue`.
-
-#### firebase-utils
-- Install: `firebase`
-- Init, Auth of `firebase`.
-
-#### google-drive
-- Install: `readline`, `google-auth-library`
-- Use `google drive api`.
-- You need to add `google_drive_secret.json` in `.ignore`.
-
-#### mail
-- Install: `nodemailer`
-- Send email with `smtp` server.
-
-#### paypal
-- Install: `paypal-rest-sdk`
-- Configure of `paypal`.
-
-#### db
-- If you need to change database, you just need to import from other `db name`.
-- List
-  - Import module like `import [db name] from 'cat-utils/lib/[db name]'`.
-  - sqlite
-    - Install: `sqlite3`
-  - postgresql
-    - You can see `pg` to now how to set config.
-    - Install: `pg` and `pg-natvie`
-
-## bin
-#### db-shell
-- Install: `babel-polyfill` and the other database you use.
-- Use to modify database in command line.
-- Example
-
-  ```js
-  db-shell [db name] [config]
-  ```
-
-- `config`: Use it when you need. If you need to use object like `postgresql`, you can use like `'{"port": 8000}'`.
-- You can input `\q` and `.exit` to quit `db-shell`.
+## Usage
+- `build`: Build the project. Use this script before you start to write the project.
+- `prod`: Set `NODE_ENV=production` and build the project. Use this script when you need to make a production version.
+- `watch`: Watch all files. Use this script when you are developing.
+- `test`: Run the test.
+- You can see other scripts in [package.json](./package.json).
 
 ## License
-MIT © [hsuting](http://hsuting.com)
+MIT © [HsuTing](http://hsuting.com)
 
 [npm-image]: https://badge.fury.io/js/cat-utils.svg
-[npm-url]: https://www.npmjs.com/package/cat-utils
+[npm-url]: https://npmjs.org/package/cat-utils
 [travis-image]: https://travis-ci.org/HsuTing/cat-utils.svg?branch=master
 [travis-url]: https://travis-ci.org/HsuTing/cat-utils
