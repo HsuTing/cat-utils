@@ -4,8 +4,6 @@ export default class Fields {
   constructor(isEmpty) {
     this.isEmpty = isEmpty || 'isEmpty';
     this.types = {};
-
-    this.defaultResolver = this.defaultResolver.bind(this);
   }
 
   addType(typeName, type) {
@@ -17,24 +15,25 @@ export default class Fields {
     return this.types;
   }
 
-  defaultResolver({rules, required, ...field}) {
-    return {
-      ...field,
-      rules: rules.concat(
-        required ? [this.isEmpty] : []
-      )
-    };
-  }
-
-  getFields(fields = [], resolver = this.defaultResolver) {
-    return fields.map(({type, ...field}) => {
+  getFields(fields = []) {
+    return (showRequired = false) => fields.map(({type, required, ...field}) => {
       if(!this.types[type])
         throw new Error(`TYPE: ${type} does not exist.`);
 
-      return resolver({
+      const {rules, ...otherSetting} = this.types[type];
+
+      return {
         ...field,
-        ...this.types[type]
-      });
+        ...otherSetting,
+        ...(showRequired ? {
+          required,
+          rules
+        } : {
+          rules: rules.concat(
+            required ? [this.isEmpty] : []
+          )
+        })
+      };
     });
   }
 }
