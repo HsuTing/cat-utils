@@ -8,4 +8,6 @@ it('checkEnv', () => {
       'test'
     ]);
   }).toThrow('test is undefined.');
+
+  expect(checkEnv('NODE_ENV')).toBe(true);
 });

@@ -26,35 +26,23 @@ describe('fields', () => {
   });
 
   it('# getFields', () => {
-    expect(fields.getFields()()).toMatchObject([]);
+    expect(fields.getFields()).toMatchObject([]);
 
     expect(fields.getFields([{
       type: 'test'
     }, {
       type: 'test',
       required: true
-    }])()).toMatchObject([{
+    }])).toMatchObject([{
       rules: []
     }, {
       rules: ['isEmpty']
     }]);
 
-    expect(fields.getFields([{
-      type: 'test'
-    }, {
-      type: 'test',
-      required: true
-    }])(true)).toMatchObject([{
-      rules: []
-    }, {
-      rules: [],
-      required: true
-    }]);
-
     expect(() => {
       fields.getFields([{
         type: 'type_not_exist'
-      }])();
+      }]);
     }).toThrow('TYPE: type_not_exist does not exist.');
   });
 });
