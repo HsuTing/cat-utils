@@ -12,7 +12,7 @@
     "watch": "concurrently -c green \"yarn lint:watch\" \"yarn babel:watch\""
   },
   "name": "cat-utils",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Some tools for building the project.",
   "author": {
     "name": "HsuTing",

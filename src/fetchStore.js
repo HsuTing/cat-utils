@@ -26,11 +26,11 @@ export default class FetchStore<object> {
 
   fetch = (
     link: string
-  ) => (
+  ): Function => (
     operation: OperationSelector,
     variables: Variables,
     cacheConfig: ?CacheConfig
-  ) => {
+  ): Promise<*> | ?object => {
     if(this.data) {
       const output: object = {...this.data};
 
