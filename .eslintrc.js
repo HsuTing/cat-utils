@@ -11,6 +11,7 @@ module.exports = {
     Promise: true
   },
   extends: [
+    'plugin:flowtype/recommended',
     'eslint:recommended',
     'google',
     'cat'
@@ -29,11 +30,15 @@ module.exports = {
     node: true
   },
   plugins: [
-    'import'
+    'import',
+    'flowtype'
   ],
   settings: {
     'import/resolver': {
       'babel-module': alias
+    },
+    'flowtype': {
+      'onlyFilesWithFlowAnnotation': true
     }
   }
 };

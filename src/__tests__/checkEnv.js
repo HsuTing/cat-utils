@@ -9,5 +9,5 @@ it('checkEnv', () => {
     ]);
   }).toThrow('test is undefined.');
 
-  expect(checkEnv('NODE_ENV')).toBe(true);
+  expect(checkEnv('NODE_ENV')).toBeUndefined();
 });

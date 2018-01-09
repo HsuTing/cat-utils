@@ -1,36 +1,55 @@
+// @flow
 'use strict';
 
-export default class FetchStore {
-  constructor(data) {
-    this.data = data;
+import fetch from 'fetch-everywhere';
 
-    this.fetch = this.fetch.bind(this);
+import type {
+  OperationSelector,
+  Variables,
+  CacheConfig
+} from 'relay-runtime';
+
+type responseType = {
+  json(): Promise<void>
+}
+
+export default class FetchStore<object> {
+  data: ?object
+
+  constructor(data: ?object) {
+    this.data = data;
   }
 
-  set add(data) {
+  set add(data: ?object) {
     this.data = data;
   }
 
-  fetch(link) {
-    return (operation, variables, cacheConfig) => {
-      if(this.data) {
-        const {...output} = this.data;
-        this.data = null;
+  fetch = (
+    link: string
+  ) => (
+    operation: OperationSelector,
+    variables: Variables,
+    cacheConfig: ?CacheConfig
+  ) => {
+    if(this.data) {
+      const output: object = {...this.data};
 
-        return output;
-      }
+      this.data = null;
+      return output;
+    }
 
-      return fetch(link, {
-        credentials: 'same-origin',
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          query: operation.text,
-          variables
-        })
-      }).then(response => response.json());
-    };
+    return fetch(link, {
+      credentials: 'same-origin',
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: operation.text,
+        variables
+      })
+    }).then((
+      response: responseType
+    ) => response.json());
   }
 }

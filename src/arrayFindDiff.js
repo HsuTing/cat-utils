@@ -1,10 +1,15 @@
+// @flow
 'use strict';
 
-export default (arrayOne, arrayTwo) => {
-  return arrayOne.reduce((result, element) => {
-    if(!arrayTwo.includes(element))
-      result.push(element);
+export default <T>(
+  arrayOne: Array<T>,
+  arrayTwo: Array<T>
+): Array<T> => arrayOne.reduce((
+  result: Array<T>,
+  element: T
+): Array<T> => {
+  if(!arrayTwo.includes(element))
+    result.push(element);
 
-    return result;
-  }, []);
-};
+  return result;
+}, []);

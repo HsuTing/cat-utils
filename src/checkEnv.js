@@ -1,15 +1,18 @@
+// @flow
 'use strict';
 
-import process from 'process';
-
-const check = keys => keys.reduce((_, name) => {
+const check = (
+  keys: Array<string>
+): void => keys.forEach((
+  name: string
+): void => {
   if(!process.env[name])
     throw new Error(`${name} is undefined.`);
+});
 
-  return true;
-}, false);
-
-export default keys => (
+export default (
+  keys: Array<string> | string
+): void => (
   keys instanceof Array ?
     check(keys) :
     check([keys])
