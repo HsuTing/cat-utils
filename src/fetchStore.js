@@ -10,7 +10,7 @@ import type {
 } from 'relay-runtime';
 
 type responseType = {
-  json(): Promise<void>
+  json(): Promise<Function>
 }
 
 export default class FetchStore<object> {
@@ -30,7 +30,7 @@ export default class FetchStore<object> {
     operation: OperationSelector,
     variables: Variables,
     cacheConfig: ?CacheConfig
-  ): Promise<*> | ?object => {
+  ): Promise<Function> | ?object => {
     if(this.data) {
       const output: object = {...this.data};
 

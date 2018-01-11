@@ -14,6 +14,7 @@ yarn install && yarn build
 - `prod`: Set `NODE_ENV=production` and build the project. Use this script when you need to make a production version.
 - `watch`: Watch all files. Use this script when you are developing.
 - `test`: Run the test.
+- `flow`: Check flowType.
 - You can see other scripts in [package.json](./package.json).
 
 ## License
