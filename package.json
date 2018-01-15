@@ -48,7 +48,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "concurrently": "^3.5.1",
     "eslint": "^4.12.0",
-    "eslint-config-cat": "https://github.com/HsuTing/eslint-config-cat.git",
+    "eslint-config-cat": "^0.1.0",
     "eslint-config-google": "^0.9.1",
     "eslint-import-resolver-babel-module": "^4.0.0-beta.3",
     "eslint-plugin-flowtype": "^2.41.0",
